@@ -1,3 +1,3 @@
-# TECHNOLOGY AND INFORMATION SYSTEM
+# TECHNOLOGY AND INFORMATION SYSTEM 💿
 
 This course provides a foundational overview of information systems and technology (IS/IT), exploring their practical applications in professional and domestic settings. It covers diverse aspects of IS/IT, encompassing hardware, software, networks, communication, internet technologies, multimedia, graphics, and system applications. The curriculum emphasizes hands-on learning through lab sessions, a substantial part of the coursework, focusing on PC installation and productivity tools. By the course's conclusion, students are expected to adeptly recognize essential IS/IT components and applications, gaining a solid understanding of their functionalities and relevance.
