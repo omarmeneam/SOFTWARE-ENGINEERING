@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XcodeX</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .brand img {
+      width: 80px; /* Adjust size as needed */
+      height: auto;
+    }
+
+    .nav ul {
+      list-style-type: none;
+    }
+
+    .nav ul li {
+      display: inline;
+    }
+
+    .nav ul li:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    .nav ul li a {
+      color: white;
+      font-size: 17px;
+      text-decoration: none;
+      
+    }
+
+    .nav ul li a:hover {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      display: grid;
+      grid-template-columns: 200px 1fr; 
+      gap: 20px;
+      padding: 20px;
+      position: relative; /* For absolute positioning of skills */
+    }
+
+    .left-menu,
+    .content,
+    .projects,
+    .skills {
+      background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    }
+
+    .left-menu h2,
+    .content h2,
+    .projects h2,
+    .skills h2 {
+      margin-bottom: 10px;
+      font-weight: bold; /* Bold headings */
+    }
+
+    .left-menu ul,
+    .content ul,
+    .projects ul,
+    .achievements ul {
+      list-style-type: none;
+    }
+
+    .left-menu ul li,
+    .content ul li,
+    .projects ul li,
+    .achievements ul li {
+      margin-bottom: 10px;
+      font-size: 16px; /* Adjust font size */
+    }
+
+    /* Footer Styles */
+    .footer {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+      
+
+    .social-links a {
+      color: #ffffff;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    /* About Me Section */
+    .about-me {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative; /* For absolute positioning of contact info */
+    }
+
+    .about-me img {
+      width: 200px; /* Adjust as needed */
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 150px;
+    }
+
+    .about-me h3 {
+      font-size: 24px; 
+      font-weight: bold; 
+    }
+
+    .about-me p {
+      font-size: 18px; 
+      color: #444; /* Darker text color */
+    }
+
+    /* Contact Info Styles */
+    .contact-info {
+      position: relative;
+      /*bottom: -215px;
+      left: 20px;*/
+        
+    }
+
+    .contact-info p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* skills Styles */
+    .skills {
+      background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .skills h2 {
+      margin-bottom: 30px;
+      font-weight: bold;
+      align-items: center;
+    }
+
+    .skills img {
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      padding-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    /* Projects Section */
+    .projects {
+      background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+      padding: 20px;
+    }
+
+    .projects h2 {
+      margin-bottom: 10px;
+      font-weight: bold; /* Bold heading */
+    }
+
+    .projects ul {
+      list-style-type: none;
+    }
+
+    .projects ul li {
+      margin-bottom: 10px;
+      font-size: 16px; /* Adjust font size */
+    }
+
+    /* Custom Styles for Brand */
+    .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand h1 {
+      font-size: 36px;
+    }
+
+    .brand .t {
+      color: #000;
+    }
+
+    .brand .red {
+      color: red;
+    }
+
+    .t:hover {
+      color: red;
+    }
+
+    /* Full Page Video Background */
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+
+    /* Background Overlay */
+    #background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    /* Smooth scrolling for navigation links */
+    .nav ul li a[href^="#"] {
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Hover Effects */
+    .nav ul li a:hover,
+    .social-links a:hover {
+      color: red; /* Change text color on hover */
+    }
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Video -->
+  <video autoplay loop muted id="background-video">
+    <source src="vecteezy_codigo-binario-con-numeros-que-se-mueven-hacia-abajo-en-la_2015336.mov" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Background Overlay -->
+  <div id="background-overlay"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <!-- Brand Logo and Welcome Heading -->
+    <div class="brand">
+      <!--<img src="X_official_logo.jpg" alt="XcodeX Logo" /> -->
+      <h1 class="t" style="color: white">X</h1>
+      <h1 class="red">CODE</h1>
+      <h1 style="color: white" class="t">X</h1>
+    </div>
+    <!-- Navigation Menu -->
+    <nav class="nav">
+      <ul>
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#Courses">Courses</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content" id="Courses">
+    <!-- Left Menu -->
+    <aside class="left-menu">
+      <!-- Section Heading -->
+      <h2 class="t">Courses</h2>
+      <!-- List of Courses -->
+      <ul>
+        <li>Programming Tech 1</li>
+        <li>Computational Mathematics</li>
+        <li>Digital Logic</li>
+        <li>Programming Tech 2</li>
+        <li>Network Communication</li>
+        <li>Computer Organization and Architecture</li>
+        <li>Database</li>
+        <li>System Analysis and Design</li>
+        <li>Technology and Information System</li>
+      </ul>
+    </aside>
+
+    <!-- Content Section -->
+    <section class="content" id="about-me">
+      <!-- Section Heading -->
+      <h2 class="t">About Me</h2>
+      <!-- Information about You -->
+      <div class="about-me">
+        <img src="Me.jpeg" alt="Your Photo" />
+        <div>
+          <h3>Omar Abdelaziz</h3> <br />
+          <p>As a dedicated student in the third semester of Software Engineering, I am deeply entrenched in the intricate world of technology and its applications. With a fervent curiosity for software development and a knack for problem-solving, I thrive on the challenges inherent in mastering programming languages, algorithms, and system architectures. My journey in software engineering has been marked by a relentless pursuit of knowledge and a commitment to excellence. I am driven by the belief that every line of code has the potential to shape the future, and I am determined to make my mark in this ever-evolving field.</p> <br />
+          <div class="contact-info">
+            <h3> On my way to be a Software Engineer</h3> <br />
+              <li>🌍 I'm based in Malaysia, JB</li> 
+              <li>🖥️ See my portfolio at <a href="http://omarmeneam.github.io/" target="_blank">MyPortfolio</a></li>
+              <li>✉️ You can contact me at <a href="mailto:o.meneam@gmail.com" target="_blank">o.meneam@gmail.com</a></li>
+              <li>🧠 I'm learning Web Development</li>
+              <li>⚡ Actually, I'm so COOL</li>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="skills" id="skills">
+      <!-- Section Heading -->
+      <h2 class="t">Skills</h2>
+      <!-- List of Achievements -->
+      <div class="skills">
+        <p>
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" alt="HTML5" /> HTML <br />
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" alt="CSS" /> CSS <br />
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" alt="JavaScript" /> JavaScript <br />
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/cplusplus-colored.svg" alt="C++" /> C++ <br />
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/csharp-colored.svg" alt="C#" /> C# <br />
+          <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" alt="Java" /> JAVA <br />
+        </p>
+      </div>
+    </section>
+      
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+      <!-- Section Heading -->
+      <h2 class="t">Projects</h2>
+      <!-- List of Projects -->
+      <ul>
+        <li><strong>Eco-Friendly Habit Tracker: </strong>is a CLI-based Eco-Friendly Habit Tracker implemented in C++, facilitating the adoption of sustainable practices through user-friendly tracking, personalized recommendations, and motivation features.</li>
+        <li><strong>Network Communication project: </strong> focuses on the conceptualization and design of a network company infrastructure, encompassing the strategic layout of company levels, server rooms, and IT equipment deployment. With meticulous attention to budget allocation, the project navigates the complexities of setting up a scalable network architecture, ensuring seamless communication, efficient data management, and effective resource utilization.</li>
+        <li><strong>CO2 ProMax System Enhancement projec: </strong> the CO2ProMax System Enhancement project, undertaken as a collaboration between the System Analysis and Design course and the Database course, aims to address critical issues in manual carbon consumption data management in Iskandar Puteri, specifically within the Iskandar Malaysia Low Carbon (IPRK) programs. By leveraging principles taught in both courses, the project seeks to streamline data collection processes, automate calculations, and improve report generation efficiency, thereby enhancing the effectiveness of environmental initiatives in the region.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Copyright Notice -->
+    <p style="color: white">&copy;  2024 XcodeX. All rights reserved.</p>
+    <!-- Social Links -->
+    <nav class="social-links" id="Contact">
+      <a href="https://www.linkedin.com/in/omar-abdelaziz-155b54209/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/omarmeneam" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/omar_meneam" target="_blank">Instagram</a>
+    </nav>
+  </footer>
+
+  <!-- Smooth scrolling JavaScript -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
